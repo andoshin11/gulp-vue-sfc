@@ -13,6 +13,14 @@
     "url": "https://github.com/andoshin11/gulp-vue-sfc/issues"
   },
   "homepage": "https://github.com/andoshin11/gulp-vue-sfc#readme",
+  "keywords": [
+    "vue",
+    "sfc",
+    "gulp",
+    "compiler",
+    "gulpplugin",
+    "gulpfriendly"
+  ],
   "scripts": {
     "build": "tsc",
     "prepare": "tsc"
