@@ -1,6 +1,6 @@
 {
   "name": "gulp-vue-sfc",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Gulp plugin to transform Vue Single File Components into js/ts files",
   "main": "lib/index.js",
   "author": "andoshin11 <shinglish11@gmail.com>",
@@ -21,6 +21,7 @@
     "gulpplugin",
     "gulpfriendly"
   ],
+  "typings": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepare": "tsc"
@@ -28,7 +29,6 @@
   "dependencies": {
     "@vue/component-compiler-utils": "^2.6.0",
     "gulp-util": "^3.0.8",
-    "replace-ext": "^1.0.0",
     "through2": "^3.0.1",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10",
@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@types/gulp-util": "^3.0.34",
-    "@types/replace-ext": "^0.0.27",
     "@types/through2": "^2.0.34",
     "typescript": "^3.3.4000"
   }

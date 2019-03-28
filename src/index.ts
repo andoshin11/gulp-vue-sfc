@@ -1,9 +1,22 @@
+import * as path from 'path'
 import * as through2 from 'through2'
 import { PluginError } from 'gulp-util'
 import * as compiler from 'vue-template-compiler'
-import replaceExt from 'replace-ext'
 import templateParser from './template'
 import templateInject from './inject'
+
+function replaceExt(npath: string, ext: string) {
+  if (typeof npath !== 'string') {
+    return npath;
+  }
+
+  if (npath.length === 0) {
+    return npath;
+  }
+
+  var nFileName = path.basename(npath, path.extname(npath)) + ext;
+  return path.join(path.dirname(npath), nFileName);
+}
 
 export default function Plugin () {
   const transform: through2.TransformFunction = (file, _, callback) => {
