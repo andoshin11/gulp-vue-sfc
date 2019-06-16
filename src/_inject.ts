@@ -1,10 +1,12 @@
+import { RenderedTemplate } from './template'
 import { DefaultExportObjectRegEx, DefaultExportReference } from './utils'
 
-export default function inject(rawScript: string, template: string) {
+export default function inject(rawScript: string, render: RenderedTemplate) {
   const { matches, script } = findInjectionPosition(rawScript);
 
   if (matches && matches.length) {
-    const renderScript = `module.exports={\n  template: \`${template}\`,\n`;
+    const staticRenderFnsStr = render.staticRenderFns !== '[]' ? `staticRenderFns: ${render.staticRenderFns}, \n` : '';
+    const renderScript = `module.exports={\n  render: ${render.render},\n\n  ${staticRenderFnsStr}`;
 
     return script
       .split(matches[0])

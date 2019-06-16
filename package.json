@@ -24,6 +24,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "watch": "tsc -w",
     "prepare": "tsc"
   },
   "dependencies": {

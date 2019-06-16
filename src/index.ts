@@ -18,7 +18,7 @@ function replaceExt(npath: string, ext: string) {
   return path.join(path.dirname(npath), nFileName);
 }
 
-export default function Plugin () {
+export default function Plugin() {
   const transform: through2.TransformFunction = (file, _, callback) => {
     if (file.isNull()) {
       return callback(null, file);
@@ -33,11 +33,13 @@ export default function Plugin () {
       let contents: string
       const component = compiler.parseComponent(String(file.contents))
       const { template } = component
-      const script = component.script ||  { content: 'import Vue from "vue";\n\nexport default Vue.extend({});', attrs: { lang: 'ts'} };
+      const script = component.script || { content: 'import Vue from "vue";\n\nexport default Vue.extend({});', attrs: { lang: 'ts' } };
 
       if (template) {
+        // TODO: Inject as render function
         const render = templateParser(template)
-        contents = templateInject(script.content, render)
+
+        contents = templateInject(script.content, template.content)
       } else {
         contents = script.content
       }

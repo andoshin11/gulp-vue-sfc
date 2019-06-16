@@ -22,8 +22,8 @@ export default function parse(template: SFCBlock, options: Options = {}): Render
   if (compiled.errors.length) {
     throw new Error(
       `\n  Error compiling template:\n\n` +
-        compiled.errors.map(e => `  - ${e}`).join('\n') +
-        '\n'
+      compiled.errors.map(e => `  - ${e}`).join('\n') +
+      '\n'
     );
   }
 
