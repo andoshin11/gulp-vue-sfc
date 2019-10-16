@@ -125,6 +125,10 @@ export default Vue.extend({
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  mounted() {
+    // comment out the line down below to pass the test
+    const invalidCalc = this.msg / 2
   }
 });
 </script>

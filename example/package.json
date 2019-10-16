@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "test:type:vue": "rm -rf ./tmp/dist && gulp copy:ts && gulp convert:vue && tsc --noEmit -p './tests/types/tsconfig.json'"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -33,6 +34,9 @@
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-vue-sfc": "^0.0.7",
     "prettier": "^1.18.2",
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
