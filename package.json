@@ -1,6 +1,6 @@
 {
   "name": "gulp-vue-sfc",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Gulp plugin to transform Vue Single File Components into js/ts files",
   "main": "lib/index.js",
   "author": "andoshin11 <shinglish11@gmail.com>",
