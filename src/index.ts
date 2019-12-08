@@ -19,6 +19,7 @@ function replaceExt(npath: string, ext: string) {
 }
 
 export default function Plugin() {
+  console.warn('gulp-vue-sfc: Template injection is currently not supported!')
   const transform: through2.TransformFunction = (file, _, callback) => {
     if (file.isNull()) {
       return callback(null, file);
@@ -32,14 +33,18 @@ export default function Plugin() {
     if (file.isBuffer()) {
       let contents: string
       const component = compiler.parseComponent(String(file.contents))
+
       const { template } = component
       const script = component.script || { content: 'import Vue from "vue";\n\nexport default Vue.extend({});', attrs: { lang: 'ts' } };
 
       if (template) {
-        // TODO: Inject as render function
-        const render = templateParser(template)
+        // FIXME: escape until setup render function type definitions
+        contents = script.content
 
-        contents = templateInject(script.content, template.content)
+        // TODO: Inject as render function
+        // const render = templateParser(template)
+
+        // contents = templateInject(script.content, template.content)
       } else {
         contents = script.content
       }
